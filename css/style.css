@@ -1,0 +1,417 @@
+@charset "utf-8";
+/* CSS Document */
+/*---------- 全体 ----------*/
+body {
+  font-family: "M PLUS 1p", "Montserrat", sans-serif;
+  animation-name: fadein;
+  animation-duration: 1s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.wrap {
+  max-width: 768px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 769px) {
+  .wrap {
+    max-width: none;
+  }
+}
+#home img {
+  width: 100%;
+  height: auto;
+}
+/* header */
+header {
+  position: fixed;
+  width: 100%;
+  max-width: 768px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  background: #fff;
+  border: solid 1px #000;
+}
+@media screen and (min-width: 769px) {
+  header {
+    width: 20%;
+    margin: 2.5% 0 0 2.5%;
+  }
+  header > h2 {
+    font-size: 1.2rem;
+  }
+}
+/* header 終わり */
+/* main */
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+#works main,
+.works-item main,
+#plofile main {
+  padding: 75px 5% 0;
+}
+@media screen and (min-width: 769px) {
+  #works main,
+  .works-item main,
+  #plofile main {
+    width: 77.5%;
+    padding: calc(2.5% + 24px) 0 0;
+    margin-left: 20%;
+  }
+}
+/* main 終わり */
+/* ++++ トグルボタン ++++ */
+#nav-tgl {
+  display: none;
+}
+label {
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.open {
+  z-index: 2;
+  width: 60px;
+  height: 48px;
+  transition: background 0.5s,
+    transform 0.5s cubic-bezier(0.76, 0.52, 0.29, 1.25);
+}
+.open::before,
+.open::after {
+  content: "";
+}
+.open span,
+.open::before,
+.open::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 30%;
+  width: 40%;
+  border-bottom: 1px solid #000;
+  transition: transform 0.5s cubic-bezier(0.76, 0.52, 0.29, 1.25);
+}
+.open::before {
+  transform: translateY(-8px);
+}
+.open::after {
+  transform: translateY(8px);
+}
+.close {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: background 0.5s;
+}
+#nav-tgl:checked + .open span {
+  transform: scaleX(0);
+}
+#nav-tgl:checked + .open::before {
+  transform: rotate(45deg);
+}
+#nav-tgl:checked + .open::after {
+  transform: rotate(-45deg);
+}
+#nav-tgl:checked ~ .close {
+  background: rgba(255, 255, 255, 0.7);
+}
+@media screen and (min-width: 769px) {
+  .open,
+  .close {
+    display: none;
+  }
+}
+/* ++++ トグルボタン 終わり ++++ */
+/* ++++ ドロワーメニュー ++++ */
+.menu {
+  z-index: 1;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 48px 6%;
+  margin: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.33, 1.01, 0.33, 0.97);
+}
+.menu h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+.menu ul {
+  padding: 0;
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+}
+.menu li {
+  font-size: 1.2em;
+}
+.menu a {
+  display: block;
+  height: 44px;
+  margin-bottom: 20px;
+  text-decoration: inherit;
+  transition: background 0.5s;
+  border: solid 1px #000;
+  background: rgba(255, 255, 255, 0.7);
+}
+.menu a:hover {
+  background-color: #0b0c0d;
+  color: #fff;
+}
+#nav-tgl:checked ~ .menu {
+  transform: none;
+}
+@media screen and (min-width: 769px) {
+  .menu {
+    width: 20%;
+    height: auto;
+    transform: none;
+    padding: calc(2.5% + 48px) 0;
+  }
+  .menu ul {
+    width: 70%;
+  }
+  .menu li {
+    font-size: inherit;
+  }
+}
+/* ++++ ドロワーメニュー 終わり ++++ */
+/* footer */
+footer {
+  height: 2.5vh;
+  text-align: center;
+  line-height: 2.5vh;
+}
+@media screen and (min-width: 769px) {
+  #works footer,
+  .works-item footer,
+  #plofile footer {
+    height: 2.5vh;
+    width: 77.5%;
+    text-align: center;
+    line-height: 2.5vh;
+    margin-left: 20%;
+    margin-right: auto;
+  }
+}
+/* footer 終わり */
+/*---------- 全体 終わり ----------*/
+/*---------- #home ----------*/
+.top-img {
+  height: 55vh;
+  position: relative;
+}
+.top-img > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 45vh;
+  min-width: 200px;
+}
+.home-title {
+  position: relative;
+  height: 10vh;
+  text-align: center;
+}
+.home-title h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 60%;
+  font-size: 3rem;
+  font-weight: bold;
+}
+.home-title h2 span {
+  font-size: 2rem;
+}
+.home-links {
+  position: relative;
+  height: 32vh;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+.home-links ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.home-links li {
+  height: 44px;
+  width: 100px;
+  border: solid 1px #000;
+}
+.home-links li:first-child {
+  margin-bottom: 30px;
+}
+.home-links li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 44px;
+  transition: 0.5s cubic-bezier(0.33, 1.01, 0.33, 0.97);
+}
+.home-links li a:hover {
+  background-color: #0b0c0d;
+  color: #fff;
+}
+/*---------- #home 終わり ----------*/
+/*---------- #works ----------*/
+.contents {
+  margin-bottom: 50px;
+  padding: 4%;
+  border: 1px solid #000;
+}
+.contents:last-child {
+  margin-bottom: 20px;
+}
+.contents p:first-child {
+  max-width: 70%;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+.contents img {
+  margin-bottom: 20px;
+  max-height: 300px;
+  width: auto;
+  max-width: 100%;
+}
+.contents span {
+  height: 40px;
+  width: 100px;
+  display: block;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #0c0c0c;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.contents-img a {
+  display: inline-block;
+  transition: 0.5s;
+}
+.contents-img a:hover {
+  opacity: 0.4;
+}
+.contents span a {
+  display: block;
+  transition: background 0.5s;
+}
+.contents a:hover {
+  background-color: #0b0c0d;
+  color: #fff;
+}
+
+.contents *:last-child {
+  margin-bottom: 0;
+}
+.contents h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.contents-text {
+  text-indent: 1rem;
+}
+@media screen and (min-width: 769px) {
+  .contents {
+    height: 500px;
+  }
+}
+/*---------- #works 終わり ----------*/
+/*---------- #works-item ----------*/
+.works-item .contents {
+  height: auto;
+}
+.works-item .contents:last-child {
+  margin-bottom: 0;
+}
+.works-item .contents h2 {
+  text-align: center;
+  margin: 50px 0;
+}
+.works-item .contents h2 a {
+  display: inline-block;
+  border: 1px solid #c1c1c1;
+  padding: 10px;
+}
+th {
+  font-weight: normal;
+  border-bottom: 1px solid #aaa;
+  text-indent: 1rem;
+  padding: 10px 0;
+}
+td {
+  padding: 10px 0 50px;
+}
+td a {
+  text-decoration: underline;
+  display: inline;
+}
+th,
+td {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+}
+.link-icon::after {
+  content: "\f35d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+@media screen and (min-width: 769px) {
+  th {
+    width: 20%;
+    min-width: 120px;
+  }
+}
+/*---------- #works-item 終わり ----------*/
+/*---------- #plofile ----------*/
+#plofile .container {
+  padding: 5%;
+  border: 1px solid #000;
+}
+.profile-face {
+  text-align: center;
+}
+.profile-face img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+#plofile main > p,
+#plofile main > div {
+  margin-bottom: 20px;
+}
+#plofile th,
+#plofile td {
+  display: block;
+  width: 100%;
+}
+#plofile th {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+#plofile td {
+  text-indent: 1rem;
+}
+/*---------- #plofile 終わり ----------*/
