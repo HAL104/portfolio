@@ -352,6 +352,7 @@ footer {
   display: inline-block;
   border: 1px solid #c1c1c1;
   padding: 10px;
+  transition: 0.5s;
 }
 th {
   font-weight: normal;
@@ -365,6 +366,7 @@ td {
 td a {
   text-decoration: underline;
   display: inline;
+  transition: 0.5s;
 }
 th,
 td {
